@@ -1,0 +1,87 @@
+.header 
+  position: fixed
+  top: 0
+  width: 100%
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.10)
+  background: #fff
+  height: 70px
+  display: flex
+  align-items: center
+  z-index: 99
+  font-size: 14px
+  
+.section-right
+  display: flex
+  align-items: center
+  padding-right: 10vw
+
+  .burger
+    border-radius: 100px
+    min-width: 55px
+    min-height: 55px
+
+    svg
+      margin-top: -2px
+
+.section-left
+  padding-left: 10vw
+  display: flex
+  flex-grow: 1
+  align-items: center
+
+  .logo
+    cursor: pointer
+    height: 45px
+    margin-top: 8px
+    margin-right: 40px
+
+.sign-up
+  padding: 5px
+  border: 1px solid white
+  border-radius: 3px
+
+.user-menu
+  svg
+    margin-right: 7px  
+
+span
+  cursor: pointer
+  outline: 0
+  &:hover
+    color: red
+
+.btn-collectors
+  border: solid 2px !important
+  color: #6b8bff
+  font-weight: 600
+  font-size: 12px
+
+  svg
+    fill: #6b8bff
+    margin-right: 10px
+
+.btn-dashboard .icon
+  margin-right: 10px
+
+.mobile
+  display: none
+
+@media only screen and (max-width: 450px)
+  .desktop
+    display: none
+
+  .mobile
+    display: inline
+
+  .section-right
+    padding-right: 10px
+
+@media only screen and (max-width: 580px)
+  .logged .desktop
+    display: none
+  
+  .logged .mobile
+    display: inline
+
+  .section-right
+    padding-right: 10px

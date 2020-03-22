@@ -1,0 +1,24 @@
+<div class="card-wrapper">
+  <div class="card">
+      <h2>{{ 'SIGN_UP.HEADER' | translate }}</h2>
+      <form [formGroup]="signUpForm" (ngSubmit)="onRegister()" fxLayout="column" fxLayoutAlign="space-around center">
+        <mat-form-field class="input">
+          <input matInput placeholder="{{ 'SIGN_UP.USERNAME' | translate }}" type="username"
+            formControlName="username" />
+        </mat-form-field>
+        <mat-form-field class="input">
+          <input matInput placeholder="{{ 'SIGN_UP.PASSWORD' | translate }}" type="password" autocomplete
+            formControlName="password" />
+        </mat-form-field>
+        <mat-form-field class="input">
+          <input matInput placeholder="{{ 'SIGN_UP.PASSWORD_CONFIRMATION' | translate }}" type="password" autocomplete
+            formControlName="passwordConfirmation" />
+        </mat-form-field>
+        <button mat-stroked-button color="primary" type="submit" class="btn-reg"
+          [disabled]="!signUpForm.valid">{{ 'SIGN_UP.SUBMIT' | translate }}</button>
+      </form>
+      <div class="to-signin">
+        <span [routerLink]="['/sign-in']">Zur Anmeldung</span>
+      </div>
+    </div>
+</div>

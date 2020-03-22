@@ -1,0 +1,13 @@
+<h2>{{ 'DASHBOARD.OVERVIEW.DATE' | translate }}</h2>
+<mat-form-field>
+  <mat-label>{{ 'DASHBOARD.OVERVIEW.LABEL' | translate }}</mat-label>
+  <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" [(ngModel)]="selectedDate">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+<button mat-button (click)="onSearch()">{{ 'DASHBOARD.OVERVIEW.SEARCH' | translate }}</button>
+<br>
+<div fxLayout="row" fxLayout.lt-lg="column" fxLayoutAlign="space-between center">
+  <app-map [date]="date" (blumoId)="changeCurrentId($event)"></app-map>
+  <app-blumo-list [currentBlumo]="currentBlumo" [date]="date"></app-blumo-list>
+</div>

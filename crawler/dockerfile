@@ -1,0 +1,6 @@
+from python:3
+
+COPY required.txt ./
+RUN pip install --no-cache-dir -r required.txt
+COPY crawl.py ./
+ENTRYPOINT ["python"]

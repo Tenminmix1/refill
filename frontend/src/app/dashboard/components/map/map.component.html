@@ -1,0 +1,14 @@
+<mat-form-field *ngIf="currentId" class="example-full-width">
+  <mat-label>{{ 'DASHBOARD.MAP.RADIUS' | translate }}</mat-label>
+  <input matInput class="radius-input" placeholder="{{ 'DASHBOARD.MAP.RADIUS_PLACE' | translate }}" [(ngModel)]="radius"
+    type="number">
+</mat-form-field>
+<br>
+<div fxLayout="row wrap" fxLayoutAlign="space-between start">
+  <button mat-button (click)="onAddBlumo()">{{ 'DASHBOARD.MAP.ADD' | translate }}</button>
+  <button *ngIf="currentId" mat-button (click)="onUpdateCircle()">{{ 'DASHBOARD.MAP.UPDATE' | translate }}</button>
+  <button *ngIf="currentId" mat-button (click)="onPublicBlumo()">{{ 'DASHBOARD.MAP.PUBLIC' | translate }}</button>
+  <button *ngIf="currentId" class="delete" mat-button
+    (click)="onDeleteBlumo()">{{ 'DASHBOARD.MAP.DELETE' | translate }}</button>
+</div>
+<div id="map" class="map"></div>

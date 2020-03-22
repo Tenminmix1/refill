@@ -1,0 +1,54 @@
+version: "3"
+
+services:
+  app:
+    container_name: node
+    restart: always
+    env_file:
+      - .env
+    build:
+      context: ./backend
+      dockerfile: dev.Dockerfile
+    depends_on:
+      - mongo
+      - redis
+    ports:
+      - 4000:4000
+
+  nginx:
+    container_name: nginx
+    restart: on-failure
+    depends_on:
+      - app
+    ports:
+      - '443:443'
+      - '80:80'
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile-Azure
+
+  mongo:
+    container_name: mongo
+    image: mongo
+    build:
+      context: ./mongo
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  redis:
+    container_name: redis
+    image: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    restart: always
+
+volumes:
+  mongo-data:
+  redis-data:

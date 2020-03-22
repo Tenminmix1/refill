@@ -1,0 +1,100 @@
+<div class="header">
+  <div class="section-left">
+    <img src="assets/images/refill-logo.svg" class="logo" [routerLink]="[ '/' ]">
+    <div *ngIf="authService.isLoggedIn" class="logged">
+      <button mat-button [routerLink]="[ '/dashboard' ]" class="menu-item mr-25 desktop btn-dashboard">
+        <svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon">
+          <path
+            d="M5.78659 0.300003C2.6524 0.300003 0.100006 2.8524 0.100006 5.98658C0.100006 8.65158 4.21011 13.7001 5.44877 15.1452C5.63645 15.3516 5.9555 15.3516 6.1244 15.1452C7.3443 13.7001 11.4732 8.67035 11.4732 5.98658C11.4732 2.83363 8.92078 0.300003 5.78659 0.300003ZM7.75718 8.67035C4.43532 10.5846 1.01962 7.16894 2.93391 3.84708C3.14036 3.47173 3.45941 3.17144 3.81599 2.965C7.13785 1.05071 10.5536 4.46641 8.63926 7.78827C8.43282 8.14486 8.11377 8.46391 7.75718 8.67035Z"
+            fill="#737373" />
+        </svg>
+
+        {{ 'HEADER.DASHBOARD' | translate }}</button>
+    </div>
+  </div>
+  <div class="section-right">
+    <div *ngIf="!authService.isLoggedIn">
+      <div class="desktop">
+        <mat-form-field style="width: 100px; margin-right: 10px">
+          <mat-label>Language</mat-label>
+          <mat-select [(value)]="selectedLanguage" (selectionChange)="setLanguage($event)">
+            <mat-option value="de">German</mat-option>
+            <mat-option value="en">English</mat-option>
+            <mat-option value="fr">French</mat-option>
+
+          </mat-select>
+        </mat-form-field>
+        <button mat-button class="btn-collectors" [routerLink]="[ '/sign-in' ]">
+          <svg xmlns="http://www.w3.org/2000/svg" height="25px" width="25px" fill="#000000" data-name="Layer 1"
+            viewBox="0 0 100 100" x="0px" y="0px">
+            <title>04</title>
+            <g data-name="Group">
+              <path data-name="Path"
+                d="M84.9,17.9a22.9,22.9,0,0,0-16.6-7h-.2a28.9,28.9,0,0,0-18.4,6.9c-5.8-5.2-11.4-7.8-16.5-7.8a25.9,25.9,0,0,0-18.7,7.9A26.9,26.9,0,0,0,7.4,31.8l5.9,1.1a20.9,20.9,0,0,1,5.6-10.8,19.9,19.9,0,0,1,14.4-6.1c4,0,9,2.7,14.3,7.9a3.2,3.2,0,0,0,4.5,0,23.2,23.2,0,0,1,16.1-7h.1a17,17,0,0,1,12.3,5.1,21.1,21.1,0,0,1,6,14.8,21.7,21.7,0,0,1-1.2,6.9H63a3,3,0,0,0-2.2.9l-9.1,9.6L41.2,30.7a3,3,0,0,0-5.3-.4L27.6,43.9H8.4v6H29.3a3,3,0,0,0,2.6-1.4L38,38.4,48,61a3,3,0,0,0,2.2,1.7h.5a3,3,0,0,0,2.2-.9l11.3-12h18l-1.5,1.8L49.8,81.6,25.3,57.9l-4.2,4.3L49.8,89.9,84.9,56a27.4,27.4,0,0,0,0-38Z" />
+            </g>
+          </svg>
+          {{ 'HEADER.COLLECT' | translate }}
+        </button>
+      </div>
+      <div class="mobile">
+        <mat-form-field style="width: 100px; margin-right: 10px">
+          <mat-label>Language</mat-label>
+          <mat-select [(value)]="selectedLanguage" (selectionChange)="setLanguage($event)">
+            <mat-option value="de">German</mat-option>
+            <mat-option value="en">English</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button mat-button class="burger" mat-button [matMenuTriggerFor]="menu">
+          <svg width="26" height="20" viewBox="0 0 26 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M25.0701 8.78001H0.0701294V11.4827H25.0701V8.78001Z" fill="black" />
+            <path d="M25.0701 16.8874H0.0701294V19.5901H25.0701V16.8874Z" fill="black" />
+            <path d="M25.0701 0.67123H0.0701294V3.37393H25.0701V0.67123Z" fill="black" />
+          </svg>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-button [routerLink]="[ '/sign-in' ]">
+            <svg xmlns="http://www.w3.org/2000/svg" height="25px" width="25px" fill="#000000" data-name="Layer 1"
+              viewBox="0 0 100 100" x="0px" y="0px">
+              <title>04</title>
+              <g data-name="Group">
+                <path data-name="Path"
+                  d="M84.9,17.9a22.9,22.9,0,0,0-16.6-7h-.2a28.9,28.9,0,0,0-18.4,6.9c-5.8-5.2-11.4-7.8-16.5-7.8a25.9,25.9,0,0,0-18.7,7.9A26.9,26.9,0,0,0,7.4,31.8l5.9,1.1a20.9,20.9,0,0,1,5.6-10.8,19.9,19.9,0,0,1,14.4-6.1c4,0,9,2.7,14.3,7.9a3.2,3.2,0,0,0,4.5,0,23.2,23.2,0,0,1,16.1-7h.1a17,17,0,0,1,12.3,5.1,21.1,21.1,0,0,1,6,14.8,21.7,21.7,0,0,1-1.2,6.9H63a3,3,0,0,0-2.2.9l-9.1,9.6L41.2,30.7a3,3,0,0,0-5.3-.4L27.6,43.9H8.4v6H29.3a3,3,0,0,0,2.6-1.4L38,38.4,48,61a3,3,0,0,0,2.2,1.7h.5a3,3,0,0,0,2.2-.9l11.3-12h18l-1.5,1.8L49.8,81.6,25.3,57.9l-4.2,4.3L49.8,89.9,84.9,56a27.4,27.4,0,0,0,0-38Z" />
+              </g>
+            </svg>
+            {{ 'HEADER.COLLECT' | translate }}
+          </button>
+        </mat-menu>
+      </div>
+    </div>
+    <div *ngIf="authService.isLoggedIn" class="logged">
+      <div class="desktop">
+        <button mat-button [matMenuTriggerFor]="menuLogout" class="user-menu">
+          <svg width="12" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M5.21516 6.63585C5.21516 3.99856 7.35746 1.86052 10 1.86052C12.6425 1.86052 14.7848 3.99856 14.7848 6.63585C14.7848 9.27313 12.6425 11.4112 10 11.4112C7.35746 11.4112 5.21516 9.27313 5.21516 6.63585ZM18.4185 16.0547C16.9877 13.6407 15.0474 12.3786 14.1122 11.8515C14.1091 11.8499 14.0826 11.8453 14.0764 11.8422C15.6315 10.6282 16.6491 8.75994 16.6491 6.63585C16.6491 2.97218 13.6725 0 10 0C6.32748 0 3.35094 2.97218 3.35094 6.63585C3.35094 8.75994 4.36849 10.6282 5.92357 11.8422C5.9158 11.8453 5.89094 11.8499 5.88784 11.8515C4.95262 12.3786 3.01227 13.6407 1.58148 16.0547C0.372844 18.0935 0.080783 20.0192 0 21.0642C0.0124281 21.5618 0.397701 21.9634 0.860649 21.9975C1.3702 22.0363 1.84713 21.6161 1.86422 21.0642C2.03356 19.2409 2.64254 17.9385 3.05732 17.2113C4.32966 14.9865 6.25602 13.8081 7.11045 13.2872C7.38853 13.1166 7.62933 12.9849 7.80022 12.8934C7.80022 12.8872 7.794 12.8732 7.79245 12.8686C8.48532 13.1135 9.22169 13.2717 10 13.2717C10.7783 13.2717 11.5131 13.1135 12.2075 12.8686C12.206 12.8732 12.1998 12.8872 12.1998 12.8934C12.3691 12.9849 12.6099 13.1166 12.8895 13.2872C13.7424 13.8081 15.6688 14.9865 16.9411 17.2113C17.3559 17.9385 17.9664 19.2409 18.1358 21.0642C18.1529 21.6161 18.6298 22.0363 19.1393 21.9975C19.6007 21.9634 19.9876 21.5618 20 21.0642C19.9177 20.0192 19.6256 18.0935 18.4185 16.0547Z"
+              fill="#737373" />
+          </svg>
+          test@user.de
+        </button>
+        <mat-menu #menuLogout="matMenu">
+          <div mat-menu-item (click)="logout()" class="menu-item">{{ 'HEADER.LOGOUT' | translate }}</div>
+        </mat-menu>
+      </div>
+      <div class="mobile">
+        <button mat-button class="burger" mat-button [matMenuTriggerFor]="menuMobile">
+          <svg width="26" height="20" viewBox="0 0 26 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M25.0701 8.78001H0.0701294V11.4827H25.0701V8.78001Z" fill="black" />
+            <path d="M25.0701 16.8874H0.0701294V19.5901H25.0701V16.8874Z" fill="black" />
+            <path d="M25.0701 0.67123H0.0701294V3.37393H25.0701V0.67123Z" fill="black" />
+          </svg>
+        </button>
+        <mat-menu #menuMobile="matMenu">
+          <button mat-menu-item [routerLink]="[ '/dashboard' ]"
+            class="menu-item mr-25">{{ 'HEADER.DASHBOARD' | translate }}</button>
+          <button mat-menu-item (click)="logout()" class="menu-item">{{ 'HEADER.LOGOUT' | translate }}</button>
+        </mat-menu>
+      </div>
+    </div>
+  </div>
+
+</div>

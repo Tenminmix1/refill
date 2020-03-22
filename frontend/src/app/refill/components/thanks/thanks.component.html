@@ -1,0 +1,16 @@
+<div class="wrapper">
+  <div class="intro">
+    <div *ngIf="donator">
+      <h3 style="margin-bottom: 10px;">{{ 'REFILL.THANK' | translate}} {{donator.firstName}} {{donator.lastName}}!</h3>
+      <p style="margin-bottom: 10px;">
+        {{ 'REFILL.SUCCESS' | translate}}
+      </p>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="space-between start">
+      <button mat-stroked-button class="share">{{ 'REFILL.SHARE' | translate}}</button>
+
+      <button mat-stroked-button [routerLink]="['/']">{{ 'BACK' | translate}}</button>
+    </div>
+  </div>
+</div>

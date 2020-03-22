@@ -1,0 +1,139 @@
+<div class="wrapper">
+  <div class="intro">
+    <div *ngIf="!showMap">
+      <div fxLayout="row" fxLayoutAlign="center none" class="headline">
+        <h2>{{ 'REFILL.REGISTRATION.PERS_DATE' | translate }}</h2>
+      </div>
+
+      <form [formGroup]="profileForm" *ngIf="profileForm">
+        <div fxLayout="row wrap" fxLayoutAlign="space-evenly none">
+          <div fxLayout="column" fxLayoutAlign="start start">
+            <h4>{{ 'REFILL.REGISTRATION.NAME' | translate }}</h4>
+
+            <mat-form-field>
+              <input type="text" matInput formControlName="firstName"
+                placeholder="{{ 'REFILL.REGISTRATION.FIRSTNAME' | translate }}" required>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input type="text" matInput formControlName="lastName"
+                placeholder="{{ 'REFILL.REGISTRATION.LASTNAME' | translate }}" required>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input type="text" matInput formControlName="email"
+                placeholder="{{ 'REFILL.REGISTRATION.EMAIL' | translate }}" required>
+            </mat-form-field>
+          </div>
+          <div fxLayout="column" fxLayoutAlign="start start">
+            <h4>{{ 'REFILL.REGISTRATION.ADDRESS' | translate }}</h4>
+
+            <mat-form-field>
+              <input type="text" matInput formControlName="street"
+                placeholder="{{ 'REFILL.REGISTRATION.STREET' | translate }}" required>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input type="text" matInput formControlName="city"
+                placeholder="{{ 'REFILL.REGISTRATION.CITY' | translate }}" required>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input type="number" matInput formControlName="zip"
+                placeholder="{{ 'REFILL.REGISTRATION.ZIP' | translate }}" required>
+            </mat-form-field>
+          </div>
+        </div>
+      </form>
+
+      <div fxLayout="row" fxLayoutAlign="center none">
+        <button mat-stroked-button
+          [disabled]="!(this.profileForm.get('street').value && this.profileForm.get('city').value && this.profileForm.get('zip').value)"
+          mat-button (click)="getPointInMap()">{{ 'REFILL.REGISTRATION.SHOWONMAP' | translate }}</button>
+      </div>
+    </div>
+
+    <div *ngIf="showMap">
+      <div fxLayout="row wrap" fxLayoutAlign="center none" class="headline">
+        <h2>{{ 'REFILL.REGISTRATION.SEARCH' | translate }}</h2>
+      </div>
+      <div *ngIf="map">
+        <div fxLayout="row wrap" fxLayoutAlign="center none" class="headline">
+
+          <div fxLayout="row wrap" fxLayoutAlign="start center">
+            <div class="meters">
+              {{ 'REFILL.REGISTRATION.HOWMANYMETERS' | translate }}
+              <mat-form-field>
+                <input matInput type="number" [(ngModel)]="distance" required
+                  placeholder="{{ 'REFILL.REGISTRATION.METERS' | translate }}" min="0" step="200">
+              </mat-form-field>
+            </div>
+
+            <button mat-stroked-button
+              (click)="setDistanceMarker(distance)">{{ 'REFILL.REGISTRATION.APPLY' | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div fxLayout="row wrap" fxLayoutAlign="space-between start">
+        <div id="map" class="map"></div>
+        <div *ngIf="map" class="centers">
+          <h3 class="nearby">{{ 'REFILL.REGISTRATION.FIXEDDATESNEARBY' | translate }}</h3>
+          <div *ngIf="bloodCenters.length === 0">Keine Termine in deiner Nähe</div>
+          <cdk-virtual-scroll-viewport *ngIf="bloodCenters.length !== 0" itemSize="112" class="example-viewport">
+            <div *cdkVirtualFor="let item of bloodCenters" class="example-item">
+              <div>{{item.strasse}}</div>
+              <div>{{item.plz}} {{item.ort}}</div>
+              <div>{{item.datum}}</div>
+              <div>{{item.uhrzeit_von}} bis {{item.uhrzeit_bis}}</div>
+            </div>
+          </cdk-virtual-scroll-viewport>
+        </div>
+      </div>
+
+      <div *ngIf="map">
+        <div fxLayout="row" fxLayoutAlign="center none" class="headline-second">
+          <h2>{{ 'REFILL.REGISTRATION.NOTHING' | translate }}</h2>
+        </div>
+
+        <div class="second-text">
+          <p>{{ 'REFILL.REGISTRATION.NOTHING_TEXT' | translate }}</p>
+        </div>
+        <div fxLayout="row wrap" fxLayoutAlign="start start">
+          <mat-form-field style="width: 120px; margin-right: 10px;">
+            <mat-label>{{ 'REFILL.REGISTRATION.DAY' | translate }}</mat-label>
+            <input matInput [matDatepicker]="dp3" [min]="minDate" disabled value [(ngModel)]="currentDateSettings.date">
+            <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+            <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field style="width: 80px; margin-right: 10px;">
+            <input matInput type="time" placeholder="{{ 'REFILL.REGISTRATION.FROM' | translate }}"
+              [(ngModel)]="currentDateSettings.from">
+          </mat-form-field>
+
+          <mat-form-field style="width: 80px;  margin-right: 10px;">
+            <input matInput type="time" placeholder="{{ 'REFILL.REGISTRATION.TO' | translate }}"
+              [(ngModel)]="currentDateSettings.till">
+          </mat-form-field>
+
+          <button mat-stroked-button style="margin-top: 12px;"
+            (click)="addDate()">{{ 'REFILL.REGISTRATION.ADD' | translate }}</button>
+        </div>
+        <mat-chip-list>
+          <mat-chip *ngFor="let dateSettings of dates">
+            {{ dateSettings.date | date:'mediumDate':undefined:'de-DE'}} | {{ dateSettings.from }} -
+            {{ dateSettings.till }}
+            <div style="margin-left: 5px; cursor: pointer;" (click)="removeDate(dateSettings)">X</div>
+          </mat-chip>
+        </mat-chip-list>
+
+        <div fxLayout="row" fxLayoutAlign="end none" style="margin-top: 10px;">
+          <button mat-stroked-button (click)="submitForm()"
+            [disabled]="!(profileForm.valid && dates.length > 0)">{{ 'REFILL.REGISTRATION.REGISTER' | translate }}</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

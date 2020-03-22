@@ -1,0 +1,46 @@
+.footer 
+  background-color: #21272d
+  min-height: 60px
+  font-size: 10px
+  color: #fff
+  display: flex
+  align-items: center
+  font-size: 13px
+
+  .section-left
+    margin-left: 10vw
+    flex-grow: 1
+    display: flex
+    align-items: center
+
+    .drop
+      margin-right: 20px
+      height: 25px
+
+  .section-right
+    margin-right: 10vw
+
+span
+  margin-right: 15px
+  cursor: pointer
+  outline: 0
+  &:hover
+    color: white
+
+@media only screen and (max-width: 500px)
+  .footer
+    display: inline-block
+    padding-top: 20px
+    width: 100%
+
+  .section-right
+    padding-left: 10vw
+    display: flex
+    flex-direction: column
+    padding-top: 25px
+    padding-bottom: 25px
+
+    span
+      margin-top: 15px
+      &:last-of-type
+        margin-bottom: 15px

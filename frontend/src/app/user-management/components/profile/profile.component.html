@@ -1,0 +1,16 @@
+<mat-card class="profile-card">
+  <mat-card-header>
+    <mat-card-title>{{ currentUser?.firstname }}</mat-card-title>
+    <mat-card-subtitle>{{ currentUser?.username }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      Role:
+    </p>
+    <ul>
+      <li *ngFor="let role of currentUser?.role">
+        {{ role.name }}
+      </li>
+    </ul>
+  </mat-card-content>
+</mat-card>

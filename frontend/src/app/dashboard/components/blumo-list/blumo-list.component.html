@@ -1,0 +1,18 @@
+<div *ngFor="let blumo of blumos" class="width" [ngClass]="{highlight: blumo._id === currentBlumo}">
+  <div fxLayout="row" class="margin">
+    <div fxFlex="50">
+      {{ 'DASHBOARD.LIST.ID' | translate }}: <br> {{blumo._id}}
+    </div>
+    <div fxFlex="20">
+      {{ 'DASHBOARD.LIST.AMOUNT' | translate }}: <br> {{ blumo.amount }}
+    </div>
+    <div fxFlex="10">
+      {{ 'DASHBOARD.LIST.FROM' | translate }}: <br> {{ blumo.from }}
+    </div>
+    <div fxFlex="10">
+      {{ 'DASHBOARD.LIST.TILL' | translate }}: <br> {{ blumo.till }}
+    </div>
+  </div>
+</div>
+<button mat-button (click)="refresh()">{{ 'DASHBOARD.LIST.UPDATE' | translate }}</button>
+<span class="left">{{ 'DASHBOARD.LIST.LAST_UPDATE' | translate }}: {{ lastUpdate}}</span>

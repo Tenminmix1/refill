@@ -1,0 +1,92 @@
+<div class="wrapper">
+  <div class="intro">
+    <div fxLayout="row wrap" fxLayoutAlign="space-between start">
+      <div>
+        <h2>{{ 'REFILL.SURVEY.HEADLINE' | translate }}</h2>
+      </div>
+      <div>
+        <mat-form-field *ngIf="selectedState">
+          <mat-label>{{ 'REFILL.SURVEY.STATE' | translate }}</mat-label>
+          <mat-select [(ngModel)]="selectedState" (selectionChange)="loadSurvey()" [disabled]="this.counter > 0">
+            <mat-option *ngFor="let state of states" [value]="state.value">
+              {{state.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="expl" *ngIf="!selectedState">
+      <div class="text">
+        <p>
+          {{ 'REFILL.SURVEY.FIRST' | translate }}
+        </p>
+        <p>
+          {{ 'REFILL.SURVEY.SECOND' | translate }}
+        </p>
+        <p>
+          {{ 'REFILL.SURVEY.THIRD' | translate }}
+        </p>
+      </div>
+      <div class="selector-wrapper">
+        <div class="selector">
+          <mat-form-field>
+            <mat-label>{{ 'REFILL.SURVEY.STATE' | translate }}</mat-label>
+            <mat-select [(ngModel)]="selectedState" (selectionChange)="loadSurvey()" [disabled]="this.counter > 0">
+              <mat-option *ngFor="let state of states" [value]="state.value">
+                {{state.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+
+
+    <div *ngIf="surveys && (counter + 1) <= surveys.length">
+      <div class="questions">
+        <div class="question">
+          {{ surveys[counter].question | translate }}
+        </div>
+        <div class="explaination">
+          {{ surveys[counter].explanation | translate }}
+        </div>
+      </div>
+
+
+      <div>
+        <div class="buttons">
+          <button mat-stroked-button (click)="setAnswer('yes')"
+            class="btn yes-button">{{ 'REFILL.SURVEY.YES' | translate }}</button>
+          <button mat-stroked-button (click)="setAnswer('no')" class="btn">{{ 'REFILL.SURVEY.NO' | translate }}</button>
+        </div>
+      </div>
+      <div class="counter">
+        {{counter + 1}} / {{surveys.length}}
+      </div>
+      <div class="source" fxLayout="row" fxLayoutAlign="end end">
+
+        <a href="https://www.drk-blutspende.de/spenderservices/spende-check-neu.php" target="_blank">Quelle:
+          {{ 'REFILL.SURVEY.SOURCE' | translate }}</a>
+
+      </div>
+    </div>
+
+    <div *ngIf="surveys && (counter + 1) > surveys.length">
+      <div *ngIf="result === ''">
+        {{ 'REFILL.SURVEY.ACCEPT' | translate }}<br>
+        <button mat-stroked-button [routerLink]="['/registration']">{{ 'REFILL.SURVEY.GO' | translate }}</button>
+      </div>
+
+      <div *ngIf="result === 'negativ'">
+        {{ 'REFILL.SURVEY.DECLINE' | translate }}<br>
+        <button mat-stroked-button [routerLink]="['/']">{{ 'REFILL.SURVEY.BACK' | translate }}</button>
+      </div>
+
+      <div *ngIf="result === 'maybe'">
+        {{ 'REFILL.SURVEY.MAYBE' | translate }}<br>
+        <button mat-stroked-button [routerLink]="['/']">{{ 'REFILL.SURVEY.BACK' | translate }}</button>
+      </div>
+    </div>
+  </div>
+</div>

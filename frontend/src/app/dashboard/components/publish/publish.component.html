@@ -1,0 +1,17 @@
+<h1>{{ 'DASHBOARD.PUBLISH.HEADLINE' | translate}}</h1>
+<br>
+{{ 'DASHBOARD.PUBLISH.TEXT' | translate}}
+<br>
+<div>
+  <mat-form-field style="width: 110px; margin-right: 10px;">
+    <input matInput type="time" placeholder="{{ 'DASHBOARD.PUBLISH.FROM' | translate }}"
+      [(ngModel)]="currentDateSettings.from">
+  </mat-form-field>
+  <br>
+  <mat-form-field style="width: 110px;  margin-right: 10px;">
+    <input matInput type="time" placeholder="{{ 'DASHBOARD.PUBLISH.TO' | translate }}"
+      [(ngModel)]="currentDateSettings.till">
+  </mat-form-field>
+</div>
+<br>
+<button mat-button (click)="onPublish()">Veröffentlichen</button>

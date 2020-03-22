@@ -1,0 +1,17 @@
+<div class="card-wrapper">
+  <div class="card">
+    <h2>{{ 'SIGN_IN.HEADER' | translate }}</h2>
+
+    <form [formGroup]="signInForm" (ngSubmit)="onLogin()">
+      <mat-form-field class="input">
+        <input matInput placeholder="{{ 'SIGN_IN.USERNAME' | translate }}" type="username" formControlName="username" />
+      </mat-form-field>
+      <mat-form-field class="input">
+        <input matInput placeholder="{{ 'SIGN_IN.PASSWORD' | translate }}" type="password" autocomplete
+          formControlName="password" />
+      </mat-form-field>
+      <button mat-stroked-button color="primary" type="submit" class="btn-login"
+        [disabled]="!signInForm.valid">{{ 'SIGN_IN.SUBMIT' | translate }}</button>
+    </form>
+  </div>
+</div>

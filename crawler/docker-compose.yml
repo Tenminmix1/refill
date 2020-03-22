@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  crawler:
+    image: refillcrawler
+    networks:
+      - blutspenden_planer_back
+    environment:
+      - MONGO_HOST=mongodb
+      - MONGO_PORT=27017
+      - MONGO_USER=root
+      - MONGO_PW=egalkarl
+    command: ["crawl.py"]
+
+networks:
+  blutspenden_planer_back:
+    external: true

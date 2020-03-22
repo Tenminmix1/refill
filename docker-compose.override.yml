@@ -1,0 +1,37 @@
+version: "3"
+
+services:
+  angular:
+    container_name: angular
+    restart: on-failure
+    build:
+      context: ./frontend
+      dockerfile: dev.Dockerfile
+    stdin_open: true
+    tty: true
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./frontend:/srv/app
+      - node_modules:/srv/app/node_modules
+
+  mongo-express:
+    image: mongo-express
+    ports:
+      - '127.0.0.1:8081:8081'
+    depends_on:
+      -  mongo
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongo
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=root
+      - ME_CONFIG_OPTIONS_EDITORTHEME=ambience
+
+  app:
+    volumes:
+      - ./backend/src:/srv/app/src
+      - ./backend/nodemon.json:/srv/app/nodemon.json
+    command:  [ "npm", "run", "watch" ]
+
+volumes:
+  node_modules:

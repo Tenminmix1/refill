@@ -1,0 +1,5 @@
+requests
+pymongo
+flask
+bs4
+geopy

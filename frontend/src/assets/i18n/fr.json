@@ -1,0 +1,133 @@
+{
+  "BACK": "Retour à la page d'accueil",
+  "SIGN_UP": {
+    "HEADER": "Inscription",
+    "USERNAME": "Adresse électronique",
+    "PASSWORD": "Mot de passe",
+    "PASSWORD_CONFIRMATION": "Répéter le mot de passe",
+    "SUBMIT": "S'inscrire"
+  },
+  "SIGN_IN": {
+    "HEADER": "Login",
+    "USERNAME": "Adresse électronique",
+    "PASSWORD": "Mot de passe",
+    "SUBMIT": "Login"
+  },
+  "HEADER": {
+    "SIGN_IN": "Login",
+    "SIGN_UP": "S'inscrire",
+    "PROFILE": "Profil",
+    "USER_OVERVIEW": "Aperçu des utilisateurs",
+    "DASHBOARD": "Dashboard",
+    "LOGOUT": "Logout",
+    "COLLECT": "Services de recouvrement"
+  },
+  "DASHBOARD": {
+    "OVERVIEW": {
+      "DATE": "Sélection de la date",
+      "LABEL": "Sélectionnez une période",
+      "SEARCH": "Recherchez"
+    },
+    "MAP": {
+      "RADIUS_PLACE": "Veuillez insérer un rayon",
+      "UPDATE": "Définir le rayon",
+      "SAVE": "Save",
+      "ADD": "Ajouter un mobile pour les donneurs de sang",
+      "DELETE": "supprimer le mobile de don du sang",
+      "PUBLIC": "Publier!"
+    }
+  },
+  "REFILL": {
+    "THANK": "Merci beaucoup.",
+    "SHARE": "Partagez avec vos amis",
+    "SUCCESS": "Nous avons enregistré vos rendez-vous pour le don de sang et les avons transmis aux services de don de sang de votre région. À l'aide de vos informations et de celles des donneurs potentiels de votre région, la localisation des mobiles de don du sang sera améliorée. Dès que l'un de ces mobiles est stationné dans votre zone et votre période de temps spécifiées, vous en serez informé par une notification. Ainsi, vous pouvez donner du sang et faire quelque chose de bien dans le confort de votre propre environnement et avec le moins de contacts humains possible. Traduit avec www.DeepL.com/Translator (version gratuite)",
+    "REGISTRATION": {
+      "FIRSTNAME": "Prénom",
+      "LASTNAME": "Nom de famille",
+      "EMAIL": "E-mail",
+      "STREET": "Rue",
+      "CITY": "Ville",
+      "ZIP": "Code postal",
+      "NOTHING": "Pas de rendez-vous inclus?",
+      "NOTHING_TEXT": "Alors faites-nous savoir quand vous aurez le temps. Si suffisamment de personnes de votre région appellent, nous vous enverrons un mobile de sang et vous avertirons.",
+      "SHOWONMAP": "Afficher sur la carte",
+      "FIXEDDATESNEARBY": "Dates fixes dans votre région",
+      "HOWMANYMETERS": "Combien de mètres voulez-vous parcourir à pied ?",
+      "METERS": "Mètres",
+      "APPLY": "Appliquer",
+      "DAY": "Jour",
+      "FROM": "De",
+      "TO": "à",
+      "ADD": "Ajouter",
+      "REGISTER": "Ajouter",
+      "ADDRESS": "Adresse",
+      "NAME": "Nom",
+      "PERS_DATE": "Données personnelles",
+      "SEARCH": "Recherche par date"
+    },
+    "INDEX": {
+      "HEADLINE": "COVID-19 et les réserves de sang...",
+      "P1": "Actuellement, les réserves de sang sont faibles en raison de la COVID-19.",
+      "P2": "Le virus Corona est un énorme défi pour notre système de soins de santé. Outre les personnes directement touchées par le virus, de nombreux autres patients ont encore besoin d'une aide urgente.",
+      "P3": " vous permet de programmer les dons de sang L'objectif est de minimiser les contacts avec d'autres personnes et donc le risque d'infection pour les donneurs.",
+      "LETS_GO": "Allons-y !"
+    },
+    "SURVEY": {
+      "FIRST": "À ce stade, nous vérifierons à l'avance si vous êtes éligible en tant que donateur.",
+      "SECOND": "Les questions peuvent varier d'un État à l'autre et sont tirées du site web de la  Deutschen Roten Kreuzes.",
+      "THIRD": "Après avoir sélectionné l'État fédéral, le questionnaire de la DRK est lancé.",
+      "HEADLINE": "Bilan de santé",
+      "STATE": "État fédéral",
+      "YES": "Oui",
+      "NO": "Non",
+      "SOURCE": "Source: DRK-WEST, traduit de l'allemand",
+      "ACCEPT": "Merci d'avoir participé ! Vous êtes un donateur éligible.",
+      "MAYBE": "Deux, merci d'avoir participé. Un don est peut-être possible. Veuillez demander à votre médecin.",
+      "DECLINE": "Merci d'avoir participé ! Désolé, nous ne pouvons pas accepter de dons.",
+      "BACK": "Retour à la page d'accueil",
+      "GO": "Suivant",
+      "QUESTIONS": {
+        "1": "Avez-vous entre 18 et 65 ans ?",
+        "2": "Pesez-vous au moins 50 kg ?",
+        "3": "Avez-vous donné du sang au cours des 56 derniers jours ?",
+        "4": "Souffrez-vous actuellement d'un rhume, d'un mal de gorge ou d'une infection à l'herpès ?",
+        "5": "Êtes-vous actuellement enceinte ou mère d'un enfant né il y a moins de 6 mois ?",
+        "6": "Prenez-vous des médicaments ou des comprimés sur ordonnance (la pilule ou d'autres préparations contraceptives ou hormonales sont exclues) ?",
+        "7": "Avez-vous déjà été diagnostiqué avec une inflammation du foie (par exemple, jaunisse, hépatite A, hépatite B, hépatite C) ?",
+        "8": "Avez-vous eu un tatouage ou un piercing au cours des 4 derniers mois ou avez-vous subi un traitement cosmétique (par exemple, un maquillage permanent) au cours des 4 derniers mois ?",
+        "9": "Avez-vous été en Grande-Bretagne ou en Irlande du Nord pendant plus de 6 mois entre le 1er janvier 1980 et le 31 décembre 1996 ?",
+        "10": "Avez-vous, ou l'un de vos parents de sang, été diagnostiqué avec la maladie de Creutzfeldt-Jakob ?",
+        "11": "Avez-vous été testé positif au VIH ou craignez-vous d'être séropositif ?",
+        "12": "Avez-vous déjà eu un problème cardiaque grave ou pris des médicaments au cours des 7 derniers jours ?",
+        "13": "Avez-vous consulté un médecin, un dentiste ou un autre professionnel de la santé au cours des 7 derniers jours ou attendez-vous actuellement un rendez-vous chez le médecin (les rendez-vous pour des examens de routine sont exclus) ?",
+        "14": "Avez-vous été en contact avec une personne atteinte d'une maladie infectieuse au cours des 8 dernières semaines ou avez-vous reçu des vaccinations ou des injections ?",
+        "15": "Avez-vous été chez un médecin ou à l'hôpital pour des examens ou des opérations au cours des 12 derniers mois ?",
+        "16": "Avez-vous séjourné hors d'Allemagne (à titre privé ou professionnel) au cours des 12 derniers mois ?",
+        "17": "Avez-vous déjà eu la malaria ou une fièvre inexpliquée en rapport avec un voyage ?",
+        "18": "Etes-vous né hors d'Europe ou avez-vous déjà été hors d'Europe pendant une période ininterrompue de plus de 6 mois ?",
+        "19": "Avez-vous visité un site sur la malaria au cours des 12 derniers mois ?",
+        "20": "Avez-vous déjà été en Amérique centrale / du Sud pendant une période ininterrompue de 4 semaines ou plus ?",
+        "21": "Avez-vous été dans une région où l'infection par le virus du Nil occidental (VNO) est endémique entre le 1er mai et le 30 novembre ?",
+        "22": "Avez-vous donné du sang au cours des 56 derniers jours ? Veuillez noter que les femmes peuvent donner leur sang 4 fois et les hommes 6 fois dans un délai de 12 mois",
+        "23": "Souffrez-vous actuellement d'un rhume ou d'un mal de gorge ?",
+        "24": "Êtes-vous actuellement enceinte ou mère d'un enfant né il y a moins de 6 mois ? Ou bien vous allaitez actuellement ? Ou avez-vous avorté au cours des six derniers mois ?",
+        "25": "Prenez-vous actuellement des médicaments sur ordonnance (autres que la pilule ou d'autres contraceptifs hormonaux) ?",
+        "26": "Avez-vous été diagnostiqué diabétique ?",
+        "27": "Avez-vous déjà été diagnostiqué avec une inflammation du foie (par exemple, hépatite A, hépatite B, hépatite C, hépatite E) ?",
+        "28": "Avez-vous suivi un traitement d'acupuncture ou une thérapie complémentaire avec des aiguilles pénétrant la peau au cours des quatre derniers mois ?",
+        "29": "Avez-vous subi une endoscopie (par exemple coloscopie, gastroscopie, etc.) au cours des quatre derniers mois ?",
+        "30": "Avez-vous ou avez-vous eu une grave maladie cardiaque ?"
+      }
+    }
+  },
+  "FOOTER": {
+    "IMPRINT": "Mentions légales",
+    "DATA_PROTECTION": "Protection des données",
+    "PROJECT": "À propos de ce projet"
+  },
+  "USER_OVERVIEW": {
+    "ITEM": {
+      "ROLES": "Rôles et autorisations"
+    }
+  }
+}
