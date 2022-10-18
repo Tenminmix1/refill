@@ -34,7 +34,7 @@ Um zu verstehen wie die Plattform ihren Nutzen entfaltet, werden im folgenden di
 * **Blutspender**:
         Bürger, die gerne eine Blutspende vornehmen möchten, können auf der Plattform eine Art Blutspendeangebot einstellen, nachdem Sie den Standardfragebogen zur Blutspende erfolgreich ausgefüllt haben.
         Hierzu teilen Sie auf der Plattform neben terminlichen Präferenzen und ihrem Standort auch einen Radius um ihren Standort mit, in welchem sie sich zwecks Blutspende bewegen würden.
-        Zunächst werden in der nähe befindliche, bereits geplante Möglichkeiten zum Blutspenden dargestellt.
+        Zunächst werden in der Nähe befindliche, bereits geplante Möglichkeiten zum Blutspenden dargestellt.
         Ferner erhält der Blutspender eine Benachrichtigung, wenn passend zu seinen Präferenzen in seinem Umfeld eine mobile Blutspende geplant wird.
         Jeder Nutzer kann nur die von ihm persönlich eingestellten Daten einsehen.
 
@@ -49,7 +49,7 @@ Die simple und strikte Benutzung der Plattform unterstreicht den Gedanken, die v
 
 Die Anwendung wurde in Docker Microservices entwickelt und auf Azure deployed. So können wir gewährleisten, dass wir in kurzer Zeit vom PoC Ressourceneinsatz für wenige Anwender zur Veranschaulichung, auf einen potentiell globalen Einsatz mit sehr hohen Nutzerzahlen wechseln können.
 
-Das Frontend wurde mit Angular 9 als Progressive Web App umgesetzt und bietet alle Funktionalitäten zur dynamischen Planung von Blutspendeterminen, um Blutspender und Blutsammler zusammen zu bringen. Mit Rücksicht auf unsere multikulturelle Gesellschaft und die Möglichkleit die Anwendung problemlos in mehreren Ländern einzusetzen, haben wir bereits für den Prototypen die Sprachen deutsch, englisch und französisch implementiert. Weitere Sprachen lassen sich über eifnache JSON Files bequem hinzufügen. Die bereits fest angebotenen Blutspendetermine, welche in der Anwendung dargestellt sind, werden automatisiert über Crawler und Requests erfasst.
+Das Frontend wurde mit Angular 9 als Progressive Web App umgesetzt und bietet alle Funktionalitäten zur dynamischen Planung von Blutspendeterminen, um Blutspender und Blutsammler zusammen zu bringen. Mit Rücksicht auf unsere multikulturelle Gesellschaft und die Möglichkleit die Anwendung problemlos in mehreren Ländern einzusetzen, haben wir bereits für den Prototypen die Sprachen deutsch, englisch und französisch implementiert. Weitere Sprachen lassen sich über einfache JSON Files bequem hinzufügen. Die bereits fest angebotenen Blutspendetermine, welche in der Anwendung dargestellt sind, werden automatisiert über Crawler und Requests erfasst.
 
 Das Backend bildet eine fertige Nodejs Express Anwendung zur Nutzerverwaltung, Erfassung von Terminen und E-Mail Versand.
 
